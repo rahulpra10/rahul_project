@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>DOCTOR - Responsive HTML &amp; Bootstrap Template</title>
+	<link rel="stylesheet" href='{% static "css/font-awesome.min.css" %}'>
+	<link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+	<link rel="stylesheet" href='{% static "css/style.css" %}'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+	<script src='{% static "js/modernizr.js" %}'></script>
+	<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+	
+	<!-- ====================================================
+	header section -->
+	<div class="header_section">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		   <div class="logo"><a href="index.html"><img src='{% static "images/logo.png" %}'></a></div>
+		   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		   <span class="navbar-toggler-icon"></span>
+		   </button>
+		   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			  <ul class="navbar-nav mr-auto">
+				 <li class="nav-item active">
+					<a class="nav-link" href="{% url 'index' %}">Home</a>
+				 </li>
+				 <li class="nav-item active">
+					<a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+				 </li>
+				
+				 <li class="nav-item active active">
+					<a class="nav-link" href="{% url 'about' %}">About</a>
+				 </li>
+				 <li class="nav-item active active">
+					<a class="nav-link" href="{% url 'register' %}">Login</a>
+				 </li>
+				 <li class="nav-item dropdown active">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  For You
+					</a>
+					<ul class="dropdown-menu">
+					  <li><a class="dropdown-item" href="{% url 'doctor' %}">DOCTOR</a></li>
+					  <li><a class="dropdown-item" href="{% url 'patient' %}">PATIENT</a></li>
+					  <li><a class="dropdown-item" href="{% url 'emergency' %}">Emergency</a></li>
+					</ul>
+				
+			  </ul>
+		   </div>
+		</nav>
+	 </div>
+	<header class="top-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-5 header-logo">
+					<br>
+					<a href="index.html"><img src='{% static "img/logo.png" %}' alt="" class="img-responsive logo"></a>
+				</div>
+
+				<div class="col-md-7">
+					<nav class="navbar navbar-default">
+					  <div class="container-fluid nav-bar">
+					    <!-- Brand and toggle get grouped for better mobile display -->
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					    </div>
+
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					      
+					      <ul class="nav navbar-nav navbar-right">
+					        <li><a class="menu active" href="#home" >Home</a></li>
+					        <li><a class="menu" href="#about">about us</a></li>
+					        <li><a class="menu" href="#service">our services </a></li>
+					        <li><a class="menu" href="#team">our team</a></li>
+					        <li><a class="menu" href="#contact"> contact us</a></li>
+					      </ul>
+					    </div><!-- /navbar-collapse -->
+					  </div><!-- / .container-fluid -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header> <!-- end of header area -->
+
+	
+	<!-- about section -->
+	<section class="about text-center" id="about">
+		<div class="container">
+			<div class="row">
+				<h2>about us</h2>
+				<h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
+				<div class="col-md-4 col-sm-6">
+					<div class="single-about-detail clearfix">
+						<div class="about-img">
+							<img class="img-responsive" src='{% static "img/item1.jpg" %}' alt="">
+						</div>
+						<div class="about-details">
+							<div class="pentagon-text">
+								<h1>Dr. M. Weiner, M.D.</h1>
+							</div>
+							<h3>Children’s specialist</h3>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="single-about-detail">
+						<div class="about-img">
+							<img class="img-responsive" src='{% static "img/item2.jpg" %}' alt="">
+						</div>
+						<div class="about-details">
+							<div class="pentagon-text">
+								<h1>Dr. Danielle, M.D.</h1>
+							</div>
+
+							<h3>Women’s specialist</h3>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="single-about-detail">
+						<div class="about-img">
+							<img class="img-responsive" src='{% static "img/item3.jpg" %}' alt="">
+						</div>
+						<div class="about-details">
+							<div class="pentagon-text">
+								<h1>Dr. Michael, M.D.</h1>
+							</div>
+							<h3>Men’s specialist</h3>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- end of about section -->
+
+	<section class="slider" id="home">
+		<div class="container-fluid">
+			<div class="row">
+			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+					<div class="header-backup"></div>
+			        <!-- Wrapper for slides -->
+			        <div class="carousel-inner" role="listbox">
+			            <div class="item active">
+			            	<img src='{% static "img/slide-one.jpg" %}' alt="">
+			                <div class="carousel-caption">
+		               			<h1>Mary Edwards Walker</h1>
+		               			<p>highquality service for men &amp; women</p>
+		               			<button>learn more</button>
+			                </div>
+			            </div>
+			            <div class="item">
+			            	<img src='{% static "img/slide-two.jpg" %}' alt="">
+			                <div class="carousel-caption">
+		               			<h1>Margaret Chung </h1>
+		               			<p>highquality service for men &amp; women</p>
+		               			<button>learn more</button>
+			                </div>
+			            </div>
+			            <div class="item">
+			            	<img src='{% static "img/slide-three.jpg" %}' alt="">
+			                <div class="carousel-caption">
+		               			<h1>Antonia Novello</h1>
+		               			<p>highquality service for men &amp; women</p>
+		               			<button>learn more</button>
+			                </div>
+			            </div>
+			            <div class="item">
+			            	<img src='{% static "img/slide-four.jpg" %}' alt="">
+			                <div class="carousel-caption">
+		               			<h1>Elizabeth Blackwell </h1>
+		               			<p>highquality service for men &amp; women</p>
+		               			<button>learn more</button>
+			                </div>
+			            </div>
+			        </div>
+			        <!-- Controls -->
+			        <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev">
+			            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			            <span class="sr-only">Previous</span>
+			        </a>
+			        <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next">
+			            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			            <span class="sr-only">Next</span>
+			        </a>
+			    </div>
+			</div>
+		</div>
+	</section><!-- end of slider section -->
+
+	
+	<!-- footer starts here -->
+	<footer class="footer clearfix">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6 footer-para">
+					<p>&copy;Mostafizur All right reserved</p>
+				</div>
+				<div class="col-xs-6 text-right">
+					<a href=""><i class="fa fa-facebook"></i></a>
+					<a href=""><i class="fa fa-twitter"></i></a>
+					<a href=""><i class="fa fa-skype"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- script tags
+	============================================================= -->
+	<script src='{% static "js/jquery-2.1.1.js" %}'></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src='{% static "js/gmaps.js" %}'></script>
+	<script src='{% static "js/smoothscroll.js" %}'></script>
+	<script src='{% static "js/bootstrap.min.js" %}'></script>
+	<script src='{% static "js/custom.js" %}'></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

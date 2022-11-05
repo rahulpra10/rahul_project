@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Recruiting For Doctor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href='{% static "other1/fonts/material-icon/css/material-design-iconic-font.min.css" %}'>
+
+        <!-- Main css -->
+        <link rel="stylesheet" href='{% static "other1/css/style.css" %}'>
+    </head>
+    <body>
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Join Us</h2>
+                        <form action= "{% url 'doctor' %}" method="POST" >
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="fname" id="name" placeholder="Your First Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="lname" id="name" placeholder="Your Last Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-edit"></i></label>
+                                <input type="text" name="education" id="name" placeholder="Education"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-edit"></i></label>
+                                <input type="text" name="massage" id="name" placeholder="Your Massege "/>
+                            </div>
+
+                            ........Our admin will contact you soon........
+                           
+                            <div class="form-group form-button">
+                                <input type="submit" name="data" class="form-submit" value="Send"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src='{% static "doctor/basic.jpg" %}' alt="doctor image"></figure>
+                        ..........You should be proud to join us..........
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="" async defer></script>
+    </body>
+</html>
