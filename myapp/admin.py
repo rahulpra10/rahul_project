@@ -5,6 +5,7 @@ admin.site.register(User)
 admin.site.register(AppoUser)
 admin.site.register(Doctor)
 admin.site.register(Patient)
+admin.site.register(RicruDoctor)
 
 
 
