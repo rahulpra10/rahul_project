@@ -14,25 +14,16 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
-      <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'> 
-      <!-- style css -->
-      <link rel="stylesheet" href='{% static "css/style.css" %}'>
-      <!-- Responsive-->
-      <link rel="stylesheet" href='{% static "css/responsive.css" %}'>
-      <!-- fevicon -->
-      <link rel="icon" href='{% static "images/fevicon.png" %}' type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href='{% static "css/jquery.mCustomScrollbar.min.css" %}'>
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- owl stylesheets --> 
-      <link rel="stylesheet" href='{% static "css/owl.carousel.min.css" %}'>
-      <link rel="stylesheet" href='{% static "css/owl.theme.default.min.css" %}'>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link rel="stylesheet" href='{% static "css/font-awesome.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+    <script src='{% static "js/modernizr.js" %}'></script>
    </head>
    <body>
       <!-- header section start -->
-      <div class="header_section">
+      {% comment %} <div class="header_section">
          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="logo"><a href="index.html"><img src='{% static "images/logo.png" %}'></a></div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,8 +58,64 @@
                </ul>
             </div>
          </nav>
-      </div>
+      </div> {% endcomment %}
       <!-- header section end -->
+      <header class="top-header">
+         <div class="container-fluid">
+             <div class="row">
+                 <div class="col-xs-5 header-logo">
+                     <br>
+                     <a href="index.html"><img src='{% static "img/logo.png" %}' alt="" class="img-responsive logo"></a>
+                 </div>
+ 
+                 <div class="col-md-7">
+                     <nav class="navbar navbar navbar-expand-lg navbar-default">
+                       <div class="container-fluid nav-bar">
+                         <!-- Brand and toggle get grouped for better mobile display -->
+                         <div class="navbar-header">
+                           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                             <span class="sr-only">Toggle navigation</span>
+                             <span class="icon-bar"></span>
+                             <span class="icon-bar"></span>
+                             <span class="icon-bar"></span>
+                           </button>
+                         </div>
+ 
+                         <!-- Collect the nav links, forms, and other content for toggling -->
+                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                           
+                           <ul class="nav navbar-nav navbar-right">
+                             <li><a class="menu active" href="#home" >Home</a></li>
+                             <li><a class="menu" href="#about">about us</a></li>
+                             <li><a class="menu" href="#service">our services </a></li>
+                             <li><a class="menu" href="#team">our team</a></li>
+                             <li><a class="menu" href="#contact"> contact us</a></li>
+                             <li><a class="menu" href="{% url 'register' %}"> Login</a></li>
+                             <li class="nav-item dropdown active">
+                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                   For You
+                                 </a>
+                                 <ul class="dropdown-menu">
+                                   <li><a class="dropdown-item" href="{% url 'doctor' %}">DOCTOR</a></li>
+                                   <li><a class="dropdown-item" href="{% url 'patient' %}">PATIENT</a></li>
+                                   <li><a class="dropdown-item" href="{% url 'emergency' %}">Emergency</a></li>
+                                 </ul>
+                                 </li>
+                           </ul>
+                         </div><!-- /navbar-collapse -->
+                       </div><!-- / .container-fluid -->
+                     </nav>
+                 </div>
+             </div>
+         </div>
+     </header> <!-- end of header area -->
+
+
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
 
       <section class="about text-center" id="about">
 		<div class="container">
@@ -121,86 +168,51 @@
 			</div>
 		</div>
 	</section>
-      <!-- contact section start -->
-      <div class="contact_section layout_padding margin_90">
-         <div class="container">
-            <h1 class="contact_taital">To Be Admited</h1>
-            <div class="news_section_2">
-               <form action="{% url 'patient' %}" method= "POST">
-                  {% csrf_token %}
-               <div class="col-md-6">
-                  <div class="contact_box">
-                     
-                     <input type="text" class="Email_text" placeholder="First Name" name="fname">
-                     <input type="text" class="Email_text" placeholder="Last Name" name="lname">
-                     <input type="email" class="Email_text" placeholder="Email" name="pat_email">
-                     <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="massage"></textarea>
-                     <div class="form-group form-button">
-                        <input type="submit" name="sub" class="form-submit" value="Send"/>
-                    </div>
-                  </div>
-               </div>
-            </form>
-            </div>
-         </div>
+      
     
-               <div class="contact_section layout_padding margin_90 bg-dark">
-                  <div class="container">
-                     <h1 class="contact_taital">What we do</h1>
-                     <div class="news_section_2">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <div class="icon_main">
-                                 <div class="icon_7"><img src='{% static "images/icon-7.png" %}'></div>
-                                 <h4 class="diabetes_text">Diabetes and obesity Counselling </h4>
-                              </div>
-                              <div class="icon_main">
-                                 <div class="icon_7"><img src='{% static "images/icon-5.png" %}'></div>
-                                 <h4 class="diabetes_text">Obstetrics and Gynsecology</h4>
-                              </div>
-                              <div class="icon_main">
-                                 <div class="icon_7"><img src='{% static "images/icon-6.png" %}'></div>
-                                 <h4 class="diabetes_text">Surgical and medical Oncology</h4>
-                              </div>
-                           </div>
-               
-      <!-- contact section end -->
-      <!-- footer section start -->
-      <div class="footer_section layout_padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-3 col-sm-6">
-                  <div class="footer_logo"><a href="index.html"><img src='{% static "images/footer-logo.png" %}'></a></div>
-                  <h1 class="adderss_text">Contact Us</h1>
-                  <div class="map_icon"><img src='{% static "images/map-icon.png" %}'><span class="paddlin_left_0">    Page when looking at its</span></div>
-                  <div class="map_icon"><img src='{% static "images/call-icon.png" %}'><span class="paddlin_left_0">   +7586656566</span></div>
-                  <div class="map_icon"><img src='{% static "images/mail-icon.png" %}'><span class="paddlin_left_0">   volim@gmail.com</span></div>
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                  <h1 class="adderss_text">Doctors</h1>
-                  <div class="hiphop_text_1">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</div>
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                  <h1 class="adderss_text">Useful Links</h1>
-                  <div class="Useful_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered ,</div>
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                  <h1 class="adderss_text">Newsletter</h1>
-                  <input type="text" class="Enter_text" placeholder="Enter your Emil" name="Enter your Emil">
-                  <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-                  <div class="social_icon">
-                     <ul>
-                        <li><a href="#"><img src='{% static "images/fb-icon.png" %}'></a></li>
-                        <li><a href="#"><img src='{% static "images/twitter-icon.png" %}'></a></li>
-                        <li><a href="#"><img src='{% static "images/linkedin-icon.png" %}'></a></li>
-                        <li><a href="#"><img src='{% static "images/instagram-icon.png" %}'></a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
+   <div class="api-map" id="contact">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12 map" id="map"></div>
+          </div>
       </div>
-      <!-- footer section end -->
+  </div><!-- end of map section -->
+
+  <!-- contact section starts here -->
+  <section class="contact">
+      <div class="container">
+          <div class="row">
+              <div class="contact-caption clearfix">
+                  <div class="contact-heading text-center">
+                      <h2>contact us</h2>
+                  </div>
+                  <div class="col-md-5 contact-info text-left">
+                      <h3>contact information</h3>
+                      <div class="info-detail">
+                          <ul><li><i class="fa fa-calendar"></i><span>Monday - Friday:</span> 9:30 AM to 6:30 PM</li></ul>
+                          <ul><li><i class="fa fa-map-marker"></i><span>Address:</span> 123 Some Street , London, UK, CP 123</li></ul>
+                          <ul><li><i class="fa fa-phone"></i><span>Phone:</span> (032) 987-1235</li></ul>
+                          <ul><li><i class="fa fa-fax"></i><span>Fax:</span> (123) 984-1234</li></ul>
+                          <ul><li><i class="fa fa-envelope"></i><span>Email:</span> info@doctor.com</li></ul>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-md-offset-1 contact-form">
+                      <h3>TO BE ADMITED</h3>
+
+                      <form class="form" action="{% url 'patient' %}" method="POST">
+                        {% csrf_token %}
+                          <input class="first_name" type="text" name="fname" placeholder="first_name">
+                          <input class="last_name" type="text" name="lname"  placeholder="last_name">
+                          <input class="email" type="email" name="pat_email"  placeholder="Email">
+                          <textarea class="massage" type="massage" name="mass"  cols="30" rows="10" placeholder="Message"></textarea>
+                          <input class="submit-btn" type="submit" value="SEND">
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section><!-- end of contact section -->
+
       <!-- copyright section start -->
       
       <div class="copyright_section">
@@ -210,17 +222,12 @@
       </div>
       <!-- copyright section end -->
       <!-- Javascript files-->
-      <script src='{% static "js/jquery.min.js" %}'></script>
-      <script src='{% static "js/popper.min.js" %}'></script>
-      <script src='{% static "js/bootstrap.bundle.min.js" %}'></script>
-      <script src='{% static "js/jquery-3.0.0.min.js" %}'></script>
-      <script src='{% static "js/plugin.js" %}'></script>
-      <!-- sidebar -->
-      <script src='{% static "js/jquery.mCustomScrollbar.concat.min.js" %}'></script>
+      <script src='{% static "js/jquery-2.1.1.js" %}'></script>
+      <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+      <script src='{% static "js/gmaps.js" %}'></script>
+      <script src='{% static "js/smoothscroll.js" %}'></script>
+      <script src='{% static "js/bootstrap.min.js" %}'></script>
       <script src='{% static "js/custom.js" %}'></script>
-      <!-- javascript --> 
-      <script src='{% static "js/owl.carousel.js" %}'></script>
-      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
    </body>
 </html>
