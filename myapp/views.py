@@ -11,13 +11,31 @@ from django.http import HttpResponseBadRequest
 import razorpay
 # Create your views here.
 
+razorpay_client = razorpay.Client(
+    auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
+
+
 
 def index(request):
     if request.method== "GET":
         return render (request, "index.html")
     else:
-           
-         currency = 'INR'
+          global user_appo
+          user_appo = {
+                "first_name" : request.POST["fname"],
+                "last_name" : request.POST["lname"],
+                "email" : request.POST["appo_email"],
+                "Massage" : request.POST["message"],
+            }
+            
+          AppoUser.objects.create(
+                first_name = user_appo["first_name"],
+                last_name = user_appo["last_name"],
+                email = user_appo["email"],
+                massage = user_appo["Massage"],
+        )
+    
+    currency = 'INR'
     amount = 50000  # Rs. 200
  
     # Create a Razorpay Order
@@ -57,46 +75,33 @@ def paymenthandler(request):
             }
  
             # verify the payment signature.
-            result = razorpay_client.utility.verify_payment_signature(
-                params_dict)
-            if result is not None:
-                amount = 20000  # Rs. 200
-                try:
- 
-                    # capture the payemt
-                    razorpay_client.payment.capture(payment_id, amount)
- 
+            # result = razorpay_client.utility.verify_payment_signature(
+            #     params_dict)
+            # if result is not None:
+            amount = 50000  # Rs. 200
+            try:
+
+                # capture the payemt
+                razorpay_client.payment.capture(payment_id, amount)
+
                     # render success page on successful caputre of payment
-                    global user_appo
-                    user_appo = {
-                        "first_name" : request.POST["fname"],
-                        "last_name" : request.POST["lname"],
-                        "massage" : request.POST["massage"],
-                        "email" : request.POST["appo_email"]
-                    }
-                    
-                    AppoUser.objects.create(
-                        first_name = user_appo["first_name"],
-                        last_name = user_appo["last_name"],
-                        massage = user_appo["massage"],
-                        email = user_appo["email"]
-                )
-                    return HttpResponse("Your massage was successfully send :)")
+                  
+                return render(request, "paymentsucces.html")
                     # return render(request, 'paymentsucces.html')
-                except:
- 
-                    # if there is an error while capturing payment.
-                    return render(request, 'paymentfail.html')
-            else:
- 
-                # if signature verification fails.
-                return render(request, 'paymentfail.html')
+            except:
+
+                # if there is an error while capturing payment.
+                return render( request,'paymentfail.html')
+    # else:
+
+    #         # if signature verification fails.
+    #     return render(request, 'paymentfail.html')
         except:
- 
-            # if we don't find the required parameters in POST data
+
+        # if we don't find the required parameters in POST data
             return HttpResponseBadRequest()
     else:
-       # if other than POST request is made.
+    # if other than POST request is made.
         return HttpResponseBadRequest()
       
     
@@ -164,8 +169,7 @@ def doctor(request):
 
  
 # authorize razorpay client with API Keys.
-razorpay_client = razorpay.Client(
-    auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
+
  
 def patient(request):
     if request.method == "GET":
